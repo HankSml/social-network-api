@@ -8,7 +8,7 @@ module.exports = {
       },
       // Get a thought
       getSingleThought(req, res) {
-        Thought.findOne({ _id: req.params.thoughtId })
+        Thought.findOne({ _id: req.params.thoughtID })
           .select('-__v')
           .then((thought) =>
             !thought
@@ -51,4 +51,28 @@ module.exports = {
           )
           .catch((err) => res.status(500).json(err));
       },
+      createReaction(req, res) {
+        Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+
+        )
+        .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought with this id!' })
+          : res.json(thought)
+        )
+        .catch((err) => res.status(500).json(err));
+      },
+      deleteReaction(req, res) {
+        Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+
+        )
+        .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought with this id!' })
+          : res.json(thought)
+        )
+        .catch((err) => res.status(500).json(err));
+      }
 }
