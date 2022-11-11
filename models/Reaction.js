@@ -7,4 +7,4 @@ const reactionSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now}
 });
 
-module.exports = {reactionSchema};
+module.exports = reactionSchema;
