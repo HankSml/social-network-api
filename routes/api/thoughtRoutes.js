@@ -11,16 +11,19 @@ const {
 
 router.route('/')
     .get(getThoughts)
+
+router.route('/:userId')
     .post(createThought);
 
-router.route('/:thoughtID')
+router.route('/:thoughtId')
     .get(getSingleThought)
     .put(updateThought)
     .delete(deleteThought);
 
-router.route('/:thoughtID/reactions/')
+router.route('/:thoughtId/reactions/')
     .post(createReaction)
-router.route('/:thoughtID/reactions/reactionId')
+
+router.route('/:thoughtId/reactions/reactionId')
     .delete(deleteReaction);
 
 module.exports = router;
