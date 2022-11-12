@@ -66,7 +66,7 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
     removeFriend(req, res) {
-        User.findOneAndUpdate({_id: params.id}, {$pull: { friends: params.friendId}}, {new: true})
+        User.findOneAndUpdate({_id: req.params.id}, {$pull: { friends: req.params.fId}}, {new: true})
         .populate({path: 'friends', select: '-__v'})
         .select('-__v')
         .then((user) => 
